@@ -15,9 +15,16 @@ COPY . /var/www/html/
 
 COPY ./nginx/default /etc/nginx/sites-enabled/default
 COPY ./entrypoint.sh /etc/entrypoint.sh
+RUN mkdir /etc/ssl/anshika.netsmartz.dev
+COPY ./anshika.netsmartz.dev/ /etc/ssl/anshika.netsmartz.dev/
+RUN chown root:root /etc/ssl/anshika.netsmartz.dev/*
+RUN chmod 660 /etc/ssl/anshika.netsmartz.dev/*
+
+
+
 RUN chmod +x /etc/entrypoint.sh
 
-ENV MYSQL_HOST=localhost
+ENV MYSQL_HOST=my_mysql
 ENV MYSQL_USER=root 
 ENV MYSQL_PASSWORD=admin
 ENV MYSQL_DB=osms_db

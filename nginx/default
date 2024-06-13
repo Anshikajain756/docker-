@@ -1,7 +1,10 @@
 server {
-#    listen 80;
-#   server_name_;
 
+    listen               443 ssl;
+    ssl_certificate      /etc/ssl/anshika.netsmartz.dev/zerossl_certificate.crt; 
+    ssl_certificate_key  /etc/ssl/anshika.netsmartz.dev/private.key;
+      
+    server_name anshika.netsmartz.dev;
     root /var/www/html/html;
     index index.php;
     client_max_body_size 30m;
@@ -20,5 +23,6 @@ server {
         fastcgi_index index.php;
         fastcgi_split_path_info ^(.+?\.php)(/.*)$;
     }
+
 }
 

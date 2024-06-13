@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+  mysql:
+    container_name: my_mysql
+    build:
+      context: ./html/
+      dockerfile: Dockerfile
+    ports:
+      - "3306:3306"
+
